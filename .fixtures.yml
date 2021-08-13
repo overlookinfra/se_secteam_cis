@@ -3,4 +3,11 @@
 ---
 fixtures:
   forge_modules:
-#     stdlib: "puppetlabs/stdlib"
+    stdlib: "puppetlabs/stdlib"
+    mount_core: "puppetlabs/mount_core"
+    augeas_core: "puppetlabs/augeas_core"
+    registry: "puppetlabs/registry"
+    concat: "puppetlabs/concat"
+    selinux: "puppet/selinux"
+    yum: "puppet/yum"
+    local_security_policy: "ayohrling/local_security_policy"
