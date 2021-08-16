@@ -48,7 +48,7 @@ class secteam_cis::redhat::redhat_7 (
   # 1.3.3 Ensure sudo log file exists (Scored)
   file_line { 'sudoers_log':
     path => '/etc/sudoers',
-    line => "%Defaults logfile=\"/var/log/sudo.log\"",
+    line => '%Defaults logfile="/var/log/sudo.log"',
     tag  => ['CIS_RHEL_1'],
   }
 
@@ -75,7 +75,7 @@ class secteam_cis::redhat::redhat_7 (
 
   # 2.1.1 Ensure xinetd is not installed (Scored)
   package { 'xinetd':
-    ensure   => 'present',
+    ensure   => 'absent',
     provider => 'yum',
     tag      => ['CIS_RHEL_2'],
   }
@@ -104,7 +104,7 @@ class secteam_cis::redhat::redhat_7 (
 
   # 4.1.1.2 Ensure auditd service is enabled (Scored)
   service { 'auditd':
-    ensure => 'started',
+    ensure => 'running',
     enable => 'true',
     tag    => ['CIS_RHEL_4'],
   }
