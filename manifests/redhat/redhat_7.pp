@@ -53,7 +53,7 @@ class secteam_cis::redhat::redhat_7 (
   }
 
   # 1.4.1 Ensure AIDE is installed (Scored)
-  package { 'AIDE':
+  package { 'aide':
     ensure   => 'present',
     provider => 'yum',
     tag      => ['CIS_RHEL_1'],
@@ -96,7 +96,7 @@ class secteam_cis::redhat::redhat_7 (
 
   # 4.1.1.1 Ensure auditd is installed (Scored)
   $audit_pkgs = [ 'audit', 'audit-libs']
-  package { 'audit_pkgs':
+  package { $audit_pkgs:
     ensure   => 'present',
     provider => 'yum',
     tag      => ['CIS_RHEL_4'],
