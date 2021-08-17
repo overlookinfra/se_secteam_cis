@@ -20,13 +20,13 @@ class secteam_cis::windows::windows_2019 (
   }
 
   # 1.1.4 (L1) Ensure 'Minimum password length' is set to '14 or more character(s)' (Scored)
-  local_security_policy { 'Minimum password length':
-    ensure         => 'present',
-    policy_setting => 'MinimumPasswordLength',
-    policy_type    => 'System Access',
-    policy_value   => '16',
-    provider       => 'policy',
-  }
+  #local_security_policy { 'Minimum password length':
+  #  ensure         => 'present',
+  #  policy_setting => 'MinimumPasswordLength',
+  #  policy_type    => 'System Access',
+  #  policy_value   => '16',
+  #  provider       => 'policy',
+  #}
 
   # 1.1.5 (L1) Ensure 'Password must meet complexity requirements' is set to 'Enabled' (Scored)
   local_security_policy { 'Password must meet complexity requirements':
