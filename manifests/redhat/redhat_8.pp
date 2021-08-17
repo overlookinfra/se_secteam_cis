@@ -1,13 +1,11 @@
-# @summary Manage hand selected CIS controls for Rhel 7
+# @summary Manage hand selected CIS controls for Rhel 8
 #
 # @example
-#   secteam_cis::redhat::redhat_7
+#   include secteam_cis::redhat::redhat_8
 
-class secteam_cis::redhat::redhat_7 (
+class secteam_cis::redhat::redhat_8 (
 
-  Boolean $firewall_enabled = true,
-  String  $password_history = '50',
-  String  $password_length = '15',
+  Boolean $selinux_status = 'enforcing'
 
 ) {
 
@@ -64,7 +62,7 @@ class secteam_cis::redhat::redhat_7 (
 
   # 1.7.1.3 Ensure SELinux policy is configured (Scored)
   class { 'selinux':
-    mode => 'enforcing',
+    mode => $selinux_status,
     type => 'targeted',
     tag  => ['CIS_RHEL_1'],
   }

@@ -1,6 +1,7 @@
 # @summary Manage hand selected CIS controls for Windows 2019
 #
-# This class manages specific controls from the CIS benchmark for Windows. The source used is "CIS Microsoft Windows Server 2019 RTM (Release 1809) Benchmark
+# This class manages specific controls from the CIS benchmark for Windows. 
+# The source used is "CIS Microsoft Windows Server 2019 RTM (Release 1809) Benchmark
 # v1.0.1 - 11-22-2019"
 #
 # @example
@@ -8,7 +9,6 @@
 class secteam_cis::windows::windows_2019 (
   Boolean $firewall_enabled = true,
   String  $password_history = '50',
-  String  $password_length = '15',
 ) {
 
   # pick 10 controls. ~5 params to override values. 
@@ -22,7 +22,7 @@ class secteam_cis::windows::windows_2019 (
   # 1.1.4 (L1) Ensure 'Minimum password length' is set to '14 or more character(s)' (Scored)
   local_security_policy { 'Minimum password length':
     ensure       => present,
-    policy_value => $password_length,
+    policy_value => '15'
   }
 
   # 1.1.5 (L1) Ensure 'Password must meet complexity requirements' is set to 'Enabled' (Scored)
