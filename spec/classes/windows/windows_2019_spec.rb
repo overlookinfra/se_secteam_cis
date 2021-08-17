@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe 'secteam_cis::windows::windows_2019' do
   test_on = {
-    supported_os = {
-        'operatingsystem': 'Windows',
-        'operatingsystemrelease': '2019'
+    supported_os: {
+      'operatingsystem': 'Windows',
+      'operatingsystemrelease': '2019'
     }
   }
   on_supported_os(test_on).each do |os, os_facts|
