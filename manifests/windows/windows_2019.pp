@@ -45,19 +45,21 @@ class secteam_cis::windows::windows_2019 (
     enable => $firewall_enabled,
   }
 
-  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\StandardProfile\\EnableFirewall':
+  $reg_prefix = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess"
+
+  registry_value { "${reg_prefix}\\Parameters\\FirewallPolicy\\StandardProfile\\EnableFirewall":
     type   => dword,
     data   => '1',
     notify => Service['MpsSvc'],
   }
 
-  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\Services\\SharedAccess\\Parameters\\FirewallPolicy\\DomainProfile\\EnableFirewall':
+  registry_value { "${reg_prefix}\\Parameters\\FirewallPolicy\\DomainProfile\\EnableFirewall":
     type   => dword,
     data   => '1',
     notify => Service['MpsSvc'],
   }
 
-  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\PublicProfile\\EnableFirewall':
+  registry_value { "${reg_prefix}\\Parameters\\FirewallPolicy\\PublicProfile\\EnableFirewall":
     type   => dword,
     data   => '1',
     notify => Service['MpsSvc'],

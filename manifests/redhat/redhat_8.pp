@@ -1,11 +1,13 @@
 # @summary Manage hand selected CIS controls for Rhel 8
 #
+# Manages CIS controls
+#
 # @example
 #   include secteam_cis::redhat::redhat_8
 
 class secteam_cis::redhat::redhat_8 (
 
-  Boolean $selinux_status = 'enforcing'
+  String $selinux_status = 'enforcing'
 
 ) {
 

@@ -1,3 +1,8 @@
+# @summary Manage hand selected Windows security controls
+#
+#
+# @example
+#   include secteam_cis::sec_example
 class secteam_cis::sec_example {
 
   #noop()
@@ -24,8 +29,9 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #4 - scenoapplylegacyauditpolicy':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\scenoapplylegacyauditpolicy',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\scenoapplylegacyauditpolicy',
+
   }
 
   registry::value { 'Security item #5 - crashonauditfail':
@@ -36,8 +42,8 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #6 - MachineAccessRestriction':
-    path   => 'HKLM\SOFTWARE\policies\Microsoft\windows NT\DCOM\MachineAccessRestriction',
     ensure => absent,
+    path   => 'HKLM\SOFTWARE\policies\Microsoft\windows NT\DCOM\MachineAccessRestriction',
   }
 
   registry::value { 'Security item #7 - MachineLaunchRestriction':
@@ -88,7 +94,7 @@ class secteam_cis::sec_example {
   registry::value { 'Security item #14 - LegalNoticeText':
     key   => 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System',
     value => 'LegalNoticeText',
-    data  => 'This system is the property of GlaxoSmithKline and may only be accessed by authorized users. By using this system you agree that GSK and its authorized agents may monitor, intercept, read, copy, capture and record any data and communications that occur on GSK IT Resources (including email and other electronic traffic to and from the Internet).If you do not want your private communications or data to be monitored, you should refrain from personal use of GSK IT Resources. GSK IT Resources include any GSK information technology equipment, facilities, networks, systems, services, information or data. Use of GSK IT Resources is subject to the Policy for Protection of GSK Information POL-GSK-100 and Policy for Acceptable Use of IT Resources POL-GSK-508. GSK monitoring is conducted in accordance with local laws and after appropriate consultation.',
+    data  => 'This system is the property of CORP and may only be accessed by authorized users.',
   }
 
   registry::value { 'Security item #15 - LegalNoticeCaption':
@@ -138,8 +144,8 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #22 - MaxDevicePasswordFailedAttempts':
-    path   => 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\MaxDevicePasswordFailedAttempts',
     ensure => absent,
+    path   => 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\MaxDevicePasswordFailedAttempts',
   }
 
   registry::value { 'Security item #23 - RequireSecuritySignature':
@@ -164,8 +170,8 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #26 - SMBServerNameHardeningLevel':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\SMBServerNameHardeningLevel',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\SMBServerNameHardeningLevel',
   }
 
   registry::value { 'Security item #27 - autodisconnect':
@@ -218,8 +224,8 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #34 - Hidden':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\Hidden',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\Hidden',
   }
 
   registry::value { 'Security item #35 - KeepAliveTime':
@@ -230,8 +236,8 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #36 - NoDefaultExempt':
-    path  => 'HKLM\SYSTEM\CurrentControlSet\Services\IPSEC\NoDefaultExempt',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\IPSEC\NoDefaultExempt',
   }
 
   registry::value { 'Security item #37 - NoNameReleaseOnDemand':
@@ -242,13 +248,13 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #38 - PerformRouterDiscovery':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\PerformRouterDiscovery',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\PerformRouterDiscovery',
   }
 
   registry_value { 'Security item #39 - TcpMaxDataRetransmissions':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\TcpMaxDataRetransmissions',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\TcpMaxDataRetransmissions',
   }
 
   registry::value { 'Security item #40 - TcpMaxDataRetransmissions':
@@ -266,8 +272,8 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #42 - DisableIPSourceRouting':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\DisableIPSourceRouting',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\DisableIPSourceRouting',
   }
 
   registry::value { 'Security item #43 - DisableIPSourceRouting':
@@ -291,8 +297,8 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #46 - WarningLevel':
-    path  => 'HKLM\SYSTEM\CurrentControlSet\Services\Eventlog\Security\WarningLevel',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Eventlog\Security\WarningLevel',
   }
 
   registry::value { 'Security item #47 - DisableDomainCreds':
@@ -380,48 +386,48 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #57 - AllowOnlineID':
-    path  => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\pku2u\AllowOnlineID',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\pku2u\AllowOnlineID',
   }
 
   registry_value { 'Security item #58 - SupportedEncryptionTypes':
-    path  => 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes',
     ensure => absent,
+    path   => 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes',
   }
 
   registry_value { 'Security item #59 - ClientAllowedNTLMServers':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0\ClientAllowedNTLMServers',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0\ClientAllowedNTLMServers',
   }
 
   registry_value { 'Security item #60 - DCAllowedNTLMServers':
-    path  => 'HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\DCAllowedNTLMServers',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\DCAllowedNTLMServers',
   }
 
   registry_value { 'Security item #61 - AuditReceivingNTLMTraffic':
-    path  => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0\AuditReceivingNTLMTraffic',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0\AuditReceivingNTLMTraffic',
   }
 
   registry_value { 'Security item #62 - AuditNTLMInDomain':
-    path  => 'HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\AuditNTLMInDomain',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\AuditNTLMInDomain',
   }
 
   registry_value { 'Security item #63 - RestrictReceivingNTLMTraffic':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0\RestrictReceivingNTLMTraffic',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0\RestrictReceivingNTLMTraffic',
   }
 
   registry_value { 'Security item #64 - RestrictNTLMInDomain':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\RestrictNTLMInDomain',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\RestrictNTLMInDomain',
   }
 
   registry_value { 'Security item #65 - RestrictSendingNTLMTraffic':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0\RestrictSendingNTLMTraffic',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0\RestrictSendingNTLMTraffic',
   }
 
   registry::value { 'Security item #66 - UseMachineId':
@@ -509,8 +515,8 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #80 - Optional':
-    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\SubSystems\Optional',
     ensure => absent,
+    path   => 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\SubSystems\Optional',
   }
 
   registry::value { 'Security item #81 - AuthenticodeEnabled':
@@ -586,18 +592,18 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #93 - Retention':
-    path   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\EventLog\Security\Retention',
     ensure => absent,
+    path   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\EventLog\Security\Retention',
   }
 
   registry_value { 'Security item #94 - Retention':
-    path   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\EventLog\System\Retention',
     ensure => absent,
+    path   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\EventLog\System\Retention',
   }
 
   registry_value { 'Security item #95 - Retention':
-    path   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application\Retention',
     ensure => absent,
+    path   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application\Retention',
   }
 
   registry::value { 'Security item #96 - MinEncryptionLevel':
@@ -607,8 +613,8 @@ class secteam_cis::sec_example {
   }
 
   registry_value { 'Security item #97 - AlwaysInstallElevated':
-    path   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated',
     ensure => absent,
+    path   => 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated',
   }
 
 }

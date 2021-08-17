@@ -1,13 +1,14 @@
 # @summary Manage hand selected CIS controls for Rhel 7
 #
+# Manages CIS controls
+#
 # @example
 #   secteam_cis::redhat::redhat_7
 
 class secteam_cis::redhat::redhat_7 (
 
-  Boolean $firewall_enabled = true,
-  String  $password_history = '50',
-  String  $password_length = '15',
+  String $selinux_status = 'enforcing',
+  Array $audit_pkgs = [ 'audit', 'audit-libs']
 
 ) {
 
@@ -64,7 +65,7 @@ class secteam_cis::redhat::redhat_7 (
 
   # 1.7.1.3 Ensure SELinux policy is configured (Scored)
   class { 'selinux':
-    mode => 'enforcing',
+    mode => $selinux_status,
     type => 'targeted',
     tag  => ['CIS_RHEL_1'],
   }
@@ -91,7 +92,6 @@ class secteam_cis::redhat::redhat_7 (
   }
 
   # 4.1.1.1 Ensure auditd is installed (Scored)
-  $audit_pkgs = [ 'audit', 'audit-libs']
   package { $audit_pkgs:
     ensure   => 'present',
     provider => 'yum',
@@ -106,5 +106,3 @@ class secteam_cis::redhat::redhat_7 (
   }
 
 }
-
-
