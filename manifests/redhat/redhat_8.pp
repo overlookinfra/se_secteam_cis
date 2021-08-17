@@ -4,7 +4,6 @@
 #
 # @example
 #   include secteam_cis::redhat::redhat_8
-
 class secteam_cis::redhat::redhat_8 (
 
   String $selinux_status = 'enforcing'
