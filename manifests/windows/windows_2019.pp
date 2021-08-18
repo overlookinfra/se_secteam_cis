@@ -8,7 +8,7 @@
 #   include secteam::os::windows_2019
 class secteam_cis::windows::windows_2019 (
   Boolean $firewall_enabled = true,
-  String  $password_history = '50',
+  String  $password_history = '40',
 ) {
 
   # pick 10 controls. ~5 params to override values. 
