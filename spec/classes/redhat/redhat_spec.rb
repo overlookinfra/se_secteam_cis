@@ -1,12 +1,15 @@
 require 'spec_helper'
 
-describe 'secteam_cis::redhat::redhat_8' do
+describe 'secteam_cis::redhat::redhat_7' do
   test_on = {
-    supported_os: {
-      'operatingsystem': 'RedHat',
-      'operatingsystemrelease': '8'
-    }
+    :supported_os => [
+      {
+        'operatingsystem'        => 'RedHat',
+        'operatingsystemrelease' => ['7','8']
+      }
+    ]
   }
+
   on_supported_os(test_on).each do |os, os_facts|
     context "on #{os}" do
       let(:facts) { os_facts }

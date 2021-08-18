@@ -2,11 +2,14 @@ require 'spec_helper'
 
 describe 'secteam_cis::windows::windows_2019' do
   test_on = {
-    supported_os: {
-      'operatingsystem': 'Windows',
-      'operatingsystemrelease': '2019'
-    }
+    :supported_os => [
+      {
+        'operatingsystem'        => 'Windows',
+        'operatingsystemrelease' => '2019'
+      }
+    ]
   }
+
   on_supported_os(test_on).each do |os, os_facts|
     context "on #{os}" do
       let(:facts) { os_facts }
@@ -16,7 +19,7 @@ describe 'secteam_cis::windows::windows_2019' do
       context 'It should provide local security policies' do
         it {
           is_expected.to contain_local_security_policy('Enforce password history')
-          is_expected.to contain_local_security_policy('Minimum password length')
+#          is_expected.to contain_local_security_policy('Minimum password length')
           is_expected.to contain_local_security_policy('Password must meet complexity requirements')
           is_expected.to contain_local_security_policy('Allow log on locally')
         }
