@@ -4,8 +4,8 @@ describe 'secteam_cis::redhat::redhat_7' do
   test_on = {
     supported_os: [
       {
-        'operatingsystem':        'RedHat',
-        'operatingsystemrelease': ['7', '8'],
+        'operatingsystem'        => 'RedHat',
+        'operatingsystemrelease' => ['7', '8'],
       },
     ]
   }
