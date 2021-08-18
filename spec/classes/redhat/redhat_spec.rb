@@ -24,7 +24,7 @@ describe 'secteam_cis::redhat::redhat_8' do
 
       context 'It should provide security-related packaging' do
         it {
-          is_expected.to contain_package('aide')
+          is_expected.to contain_package('aide').with('ensure' => 'present')
           is_expected.to contain_package('libselinux')
           is_expected.to contain_package('audit')
           is_expected.to contain_package('audit-libs')
