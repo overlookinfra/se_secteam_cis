@@ -49,7 +49,7 @@ class secteam_cis::redhat::redhat_8 (
 
   # 1.4.1 Ensure AIDE is installed (Scored)
   package { 'aide':
-    ensure   => 'absent',
+    ensure   => 'present',
     provider => 'yum',
     tag      => ['CIS_RHEL_1'],
   }
